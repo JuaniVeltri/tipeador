@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Tipeador",
+  "version": "1.0.0",
+  "description": "Pegás un texto y lo escribe letra por letra, como una persona, en el campo donde estabas.",
+  "action": {
+    "default_title": "Tipeador",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+T" },
+      "description": "Abrir Tipeador"
+    }
+  },
+  "permissions": ["activeTab", "scripting", "storage"]
+}

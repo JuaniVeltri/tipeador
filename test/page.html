@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tipeador test page</title>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <input id="in">
+  <input id="other">
+  <input id="digits">
+  <textarea id="ta"></textarea>
+  <textarea id="chat"></textarea>
+  <div id="ce" contenteditable="true"></div>
+  <div id="react"></div>
+  <iframe id="fr" srcdoc="<!doctype html><body contenteditable='true'></body>"></iframe>
+  <button id="btn">button</button>
+  <script>
+    window.sent = 0;
+    // A chat box: plain Enter sends, Shift+Enter is a new line.
+    document.getElementById('chat').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); window.sent++; }
+    });
+    // A field that only accepts digits by cancelling other keys.
+    document.getElementById('digits').addEventListener('keydown', (e) => {
+      if (e.key.length === 1 && !/[0-9]/.test(e.key)) e.preventDefault();
+    });
+
+    function App() {
+      const [v, setV] = React.useState('');
+      return React.createElement('div', null,
+        React.createElement('input', { id: 'rin', value: v, onChange: (e) => setV(e.target.value) }),
+        React.createElement('span', { id: 'rout' }, v));
+    }
+    ReactDOM.createRoot(document.getElementById('react')).render(React.createElement(App));
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tipeador</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <textarea id="text" placeholder="Pegá el texto acá y se tipea solo" autofocus></textarea>
+  <div class="row">
+    <select id="speed" aria-label="Velocidad">
+      <option value="400">Lenta</option>
+      <option value="240">Normal</option>
+      <option value="150">Rápida</option>
+      <option value="5">Sin pausas</option>
+    </select>
+    <span class="hint">Esc en la página para frenar</span>
+  </div>
+  <p id="msg" role="status"></p>
+  <script src="typer.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
